@@ -8,8 +8,8 @@ function AboutPage() {
       name: "Aditya Singh",
       role: "Full Stack Developer",
       image: "/aditya.jpg",
-      bio: "Full-stack developer with expertise in image processing algorithms and distributed systems. Leading the core architecture of PixcelCraft.",
-      skills: ["Image Processing", "API Design", "System Architecture", "Performance Optimization"],
+      bio: "Full-stack developer with expertise in Node.js and Express.js. Leading the core architecture of PixcelCraft.",
+      skills: ["Node.js", "API Design", "Express.js", "Performance Optimization"],
       social: {
         github: "#",
         twitter: "#",
@@ -20,8 +20,8 @@ function AboutPage() {
       name: "Anishk Jaiswal",
       role: "Full Stack Developer",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400&h=400",
-      bio: "Backend specialist focusing on scalable infrastructure and cloud optimization. Driving the performance improvements in PixcelCraft.",
-      skills: ["Cloud Architecture", "Backend Development", "DevOps", "Security"],
+      bio: "Frontend specialist focusing on User Experience. Driving the performance improvements in PixcelCraft.",
+      skills: ["React.js", "Figma", "UI/UX",  "Editor", "Version Control"],
       social: {
         github: "#",
         twitter: "#",
@@ -51,7 +51,7 @@ function AboutPage() {
       <main className="container mx-auto px-4 py-12">
         {/* Mission Statement */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-blue-400 mb-4">Our Mission</h2>
+          <h2 className="text-3xl font-bold text-blue-400 mb-4">Our Vision</h2>
           <p className="text-gray-300 max-w-3xl mx-auto text-lg">
             We're building the next generation of image processing tools, making complex image manipulation accessible to developers worldwide through simple, powerful APIs.
           </p>
@@ -61,7 +61,7 @@ function AboutPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {features.map((feature, index) => (
             <div key={index} className="bg-gray-900 p-6 rounded-xl border border-gray-800">
-              <div className="h-12 w-12 bg-blue-900 rounded-lg flex items-center justify-center mb-4">
+              <div className="h-12 w-12 bg-blue-900 rounded-lg flex items-center justify-center mb-4 ">
                 <feature.icon className="h-6 w-6 text-blue-400" />
               </div>
               <h3 className="text-xl font-semibold text-gray-100 mb-2">{feature.title}</h3>

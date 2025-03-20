@@ -63,21 +63,21 @@ function App() {
               icon={MessageSquare}
               title="Community Chat"
               description="Join our Discord community for real-time discussions and support."
-              link="https://discord.gg/imageutils"
+              link="https://discord.gg/PixcelCraft"
               linkText="Join Discord"
             />
             <ContactCard
               icon={Users}
               title="GitHub Discussions"
               description="Participate in discussions, feature requests, and bug reports."
-              link="https://github.com/imageutils/discussions"
+              link="https://github.com/PixcelCraft/discussions"
               linkText="View Discussions"
             />
             <ContactCard
               icon={Phone}
               title="Schedule a Call"
               description="Book a video call with our developer team for complex inquiries."
-              link="https://calendly.com/imageutils"
+              link="https://calendly.com/PixcelCraft"
               linkText="Schedule Now"
             />
           </div>
@@ -174,7 +174,7 @@ function App() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-2xl font-bold mb-4 md:mb-0">
-              ImageUtils
+              PixcelCraft
             </div>
             <div className="flex gap-8">
               <a href="#" className="hover:text-blue-400 transition-colors">Documentation</a>
@@ -183,7 +183,7 @@ function App() {
             </div>
           </div>
           <div className="mt-8 text-center text-gray-500">
-            © {new Date().getFullYear()} ImageUtils. All rights reserved.
+            © {new Date().getFullYear()} PixcelCraft. All rights reserved.
           </div>
         </div>
       </footer>

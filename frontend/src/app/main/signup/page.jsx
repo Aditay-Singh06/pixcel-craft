@@ -42,7 +42,7 @@ function SignUpPage() {
             <div className="h-16 w-16 bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
               <User className="h-8 w-8 text-blue-400" />
             </div>
-            <h2 className="text-2xl font-bold text-gray-100">Join ImageUtils</h2>
+            <h2 className="text-2xl font-bold text-gray-100">Join PixcelCraft</h2>
             <p className="text-gray-400 mt-2">Start building amazing image utilities today</p>
           </div>
 
@@ -161,7 +161,7 @@ function SignUpPage() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-2xl font-bold mb-4 md:mb-0">
-              ImageUtils
+              PixcelCraft
             </div>
             <div className="flex gap-8">
               <a href="#" className="hover:text-blue-400 transition-colors">Documentation</a>
@@ -170,7 +170,7 @@ function SignUpPage() {
             </div>
           </div>
           <div className="mt-6 text-center text-gray-500">
-            © {new Date().getFullYear()} ImageUtils. All rights reserved.
+            © {new Date().getFullYear()} PixcelCraft. All rights reserved.
           </div>
         </div>
       </footer>

@@ -1,113 +1,66 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import Link from "next/link"
-import { Image, Code, Crop, Filter, Layers, Zap, Download, Github, ArrowRight, Check } from "lucide-react"
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Link from "next/link";
+import {
+  Image,
+  Code,
+  Crop,
+  Filter,
+  Layers,
+  Zap,
+  Download,
+  Github,
+  ArrowRight,
+  Check,
+} from "lucide-react";
+import Navbar from "../../components/Navbar";
+import { Cover } from "../../components/ui/cover";  
+import { FeaturesSectionDemo } from "../../components/FeatureSectionDemo";
+import { HeroSectionOne } from "../../components/Hero-Section";
+
 
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
       {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Image className="h-6 w-6" />
-            <span className="text-xl font-bold">PixelCraft</span>
-          </div>
-          <nav className="hidden md:flex gap-6">
-            <Link href="#features" className="text-sm font-medium hover:text-primary">
-              Features
-            </Link>
-            <Link href="#examples" className="text-sm font-medium hover:text-primary">
-              Examples
-            </Link>
-            <Link href="#installation" className="text-sm font-medium hover:text-primary">
-              Installation
-            </Link>
-            <Link href="#docs" className="text-sm font-medium hover:text-primary">
-              Documentation
-            </Link>
-          </nav>
-          <div className="flex items-center gap-4">
-            <Link href="https://github.com/yourusername/pixel-craft" target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" size="icon">
-                <Github className="h-4 w-4" />
-                <span className="sr-only">GitHub</span>
-              </Button>
-            </Link>
-            <Button>Get Started</Button>
-          </div>
-        </div>
-      </header>
+      <Navbar />
 
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
-          <div className="container px-4 md:px-6">
-            <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
-              <div className="flex flex-col justify-center space-y-4">
-                <div className="space-y-2">
-                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                    Powerful Image Utilities for React
-                  </h1>
-                  <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                    A lightweight, high-performance library for image manipulation, optimization, and effects in your
-                    React applications.
-                  </p>
-                </div>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button size="lg">
-                    Get Started
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                  <Button variant="outline" size="lg">
-                    View on GitHub
-                    <Github className="ml-2 h-4 w-4" />
-                  </Button>
-                </div>
-              </div>
-              <div className="flex items-center justify-center">
-                <div className="relative w-full max-w-sm overflow-hidden rounded-lg border bg-background p-2 shadow-xl">
-                  <div className="absolute top-2 left-2 flex space-x-1">
-                    <div className="h-3 w-3 rounded-full bg-red-500"></div>
-                    <div className="h-3 w-3 rounded-full bg-yellow-500"></div>
-                    <div className="h-3 w-3 rounded-full bg-green-500"></div>
-                  </div>
-                  <div className="mt-6 space-y-2 p-4">
-                    <div className="h-4 w-3/4 rounded bg-muted"></div>
-                    <div className="h-4 w-full rounded bg-muted"></div>
-                    <div className="h-4 w-5/6 rounded bg-muted"></div>
-                    <div className="mt-6 grid grid-cols-2 gap-4">
-                      <div className="aspect-square rounded-md bg-gradient-to-br from-purple-500 to-blue-500"></div>
-                      <div className="aspect-square rounded-md bg-gradient-to-br from-yellow-500 to-red-500"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+      
+          <HeroSectionOne/>
+        
 
         {/* Features Section */}
-        <section id="features" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+        <section
+          id="features"
+          className="w-full py-12 md:py-24 lg:py-32 bg-black"
+        >
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Powerful Features</h2>
+                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
+                  Powerful Features
+                </h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
-                  Everything you need to manipulate, optimize, and enhance images in your React applications.
+                  Everything you need to manipulate, optimize, and enhance
+                  images in your React applications.
                 </p>
               </div>
             </div>
-            <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 md:grid-cols-2 lg:grid-cols-3">
-              <Card>
-                <CardContent className="pt-6">
+            {/* <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 md:grid-cols-2 lg:grid-cols-3">
+
+            
+
+              <Card className="">
+                <CardContent className="pt-6 hover:border-red/10">
                   <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 ">
                     <Crop className="h-5 w-5 text-primary" />
                   </div>
                   <h3 className="text-lg font-bold">Image Cropping</h3>
                   <p className="text-sm text-muted-foreground">
-                    Easily crop images with an intuitive interface and precise controls.
+                    Easily crop images with an intuitive interface and precise
+                    controls.
                   </p>
                 </CardContent>
               </Card>
@@ -118,7 +71,8 @@ export default function Home() {
                   </div>
                   <h3 className="text-lg font-bold">Filters & Effects</h3>
                   <p className="text-sm text-muted-foreground">
-                    Apply beautiful filters and effects with just a few lines of code.
+                    Apply beautiful filters and effects with just a few lines of
+                    code.
                   </p>
                 </CardContent>
               </Card>
@@ -129,7 +83,8 @@ export default function Home() {
                   </div>
                   <h3 className="text-lg font-bold">Layer Composition</h3>
                   <p className="text-sm text-muted-foreground">
-                    Combine multiple images with advanced blending modes and masks.
+                    Combine multiple images with advanced blending modes and
+                    masks.
                   </p>
                 </CardContent>
               </Card>
@@ -140,7 +95,8 @@ export default function Home() {
                   </div>
                   <h3 className="text-lg font-bold">Optimization</h3>
                   <p className="text-sm text-muted-foreground">
-                    Automatically optimize images for the web without sacrificing quality.
+                    Automatically optimize images for the web without
+                    sacrificing quality.
                   </p>
                 </CardContent>
               </Card>
@@ -151,7 +107,8 @@ export default function Home() {
                   </div>
                   <h3 className="text-lg font-bold">Export Options</h3>
                   <p className="text-sm text-muted-foreground">
-                    Export images in multiple formats with customizable quality settings.
+                    Export images in multiple formats with customizable quality
+                    settings.
                   </p>
                 </CardContent>
               </Card>
@@ -166,8 +123,9 @@ export default function Home() {
                   </p>
                 </CardContent>
               </Card>
-            </div>
+            </div> */}
           </div>
+          <FeaturesSectionDemo/>
         </section>
 
         {/* Examples Section */}
@@ -175,9 +133,12 @@ export default function Home() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">See It In Action</h2>
+                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
+                  See It In Action
+                </h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
-                  Check out these examples to see how easy it is to use PixelCraft in your projects.
+                  Check out these examples to see how easy it is to use
+                  PixelCraft in your projects.
                 </p>
               </div>
             </div>
@@ -272,7 +233,9 @@ function App() {
                         <div className="w-full bg-muted rounded-full h-2.5">
                           <div className="bg-primary h-2.5 rounded-full w-[20%]"></div>
                         </div>
-                        <p className="text-xs text-muted-foreground text-center">80% size reduction</p>
+                        <p className="text-xs text-muted-foreground text-center">
+                          80% size reduction
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -283,11 +246,16 @@ function App() {
         </section>
 
         {/* Installation Section */}
-        <section id="installation" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+        <section
+          id="installation"
+          className="w-full py-12 md:py-24 lg:py-32 bg-muted"
+        >
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Quick Installation</h2>
+                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
+                  Quick Installation
+                </h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
                   Get started in seconds with npm.
                 </p>
@@ -333,7 +301,9 @@ export default App;`}
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Simple Pricing</h2>
+                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
+                  Simple Pricing
+                </h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
                   Choose the plan that's right for you.
                 </p>
@@ -345,7 +315,9 @@ export default App;`}
                   <div className="mb-4 space-y-2">
                     <h3 className="text-2xl font-bold">Free</h3>
                     <p className="text-4xl font-bold">$0</p>
-                    <p className="text-sm text-muted-foreground">Perfect for hobby projects</p>
+                    <p className="text-sm text-muted-foreground">
+                      Perfect for hobby projects
+                    </p>
                   </div>
                   <ul className="mb-6 space-y-2">
                     <li className="flex items-center">
@@ -372,7 +344,9 @@ export default App;`}
                     </div>
                     <h3 className="text-2xl font-bold">Pro</h3>
                     <p className="text-4xl font-bold">$29</p>
-                    <p className="text-sm text-muted-foreground">Per month, billed annually</p>
+                    <p className="text-sm text-muted-foreground">
+                      Per month, billed annually
+                    </p>
                   </div>
                   <ul className="mb-6 space-y-2">
                     <li className="flex items-center">
@@ -400,7 +374,9 @@ export default App;`}
                   <div className="mb-4 space-y-2">
                     <h3 className="text-2xl font-bold">Enterprise</h3>
                     <p className="text-4xl font-bold">Custom</p>
-                    <p className="text-sm text-muted-foreground">For large organizations</p>
+                    <p className="text-sm text-muted-foreground">
+                      For large organizations
+                    </p>
                   </div>
                   <ul className="mb-6 space-y-2">
                     <li className="flex items-center">
@@ -437,7 +413,8 @@ export default App;`}
                 Ready to transform your image processing?
               </h2>
               <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed">
-                Join thousands of developers using PixelCraft to create amazing image experiences.
+                Join thousands of developers using PixelCraft to create amazing
+                image experiences.
               </p>
             </div>
             <div className="mx-auto flex flex-col gap-2 min-[400px]:flex-row">
@@ -460,19 +437,27 @@ export default App;`}
             © {new Date().getFullYear()} PixelCraft. All rights reserved.
           </p>
           <div className="flex gap-4">
-            <Link href="#" className="text-sm text-muted-foreground hover:underline">
+            <Link
+              href="#"
+              className="text-sm text-muted-foreground hover:underline"
+            >
               Terms
             </Link>
-            <Link href="#" className="text-sm text-muted-foreground hover:underline">
+            <Link
+              href="#"
+              className="text-sm text-muted-foreground hover:underline"
+            >
               Privacy
             </Link>
-            <Link href="#" className="text-sm text-muted-foreground hover:underline">
+            <Link
+              href="#"
+              className="text-sm text-muted-foreground hover:underline"
+            >
               Contact
             </Link>
           </div>
         </div>
       </footer>
     </div>
-  )
+  );
 }
-
