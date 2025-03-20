@@ -1,6 +1,5 @@
-const { Opacity } = require("@tsparticles/engine");
-const { keyframes } = require("motion");
-const { transform } = require("typescript");
+
+
 
 module.exports = {
   darkMode: ["class"],
