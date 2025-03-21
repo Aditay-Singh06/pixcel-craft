@@ -1,4 +1,4 @@
-import { Inter, Roboto } from "next/font/google"
+import { Roboto } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 
