@@ -16,7 +16,6 @@ export default function Home() {
       <div className=" mb-20 ">
         <Navbar />
       </div>
-      <div className="sidebar"></div>
       <main className="flex-1">
         <section id="hero-section mt-20">
           <Spotlight/>
@@ -54,7 +53,7 @@ export default function Home() {
         <Installation />
 
         {/* CTA Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32 border-t">
+        <section className="w-full py-12 md:py-24 lg:py-32 border-t bg-[#03050F]">
           <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6">
             <div className="space-y-3">
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
@@ -84,7 +83,7 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="w-full border-t py-6 md:py-0 bg-[#03050F] ">
+      <footer className="w-full border-t py-6 md:py-0 bg-[#03050F] bg-[#07091C]">
         <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row ">
           <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
             © {new Date().getFullYear()} PixelCraft. All rights reserved.

@@ -6,7 +6,7 @@ const Installation = () => {
   return (
     <section
               id="installation"
-              className="w-full py-12 md:py-24 lg:py-32 bg-[#03050F]"
+              className="w-full py-12 md:py-24 lg:py-32 bg-[#07091C]"
             >
               <div className="container px-4 md:px-6">
                 <div className="flex flex-col items-center justify-center space-y-4 text-center">
