@@ -6,6 +6,7 @@ import { HeroSectionOne } from "../../components/Hero-Section";
 import Example from "../../components/Example";
 import Installation from "../../components/Installation";
 import { Spotlight } from "../../components/ui/spotlight-new";
+import Documentation from "../../components/Documentation";
 
 
 export default function Home() {
@@ -25,7 +26,7 @@ export default function Home() {
         {/* Features Section */}
         <section
           id="features"
-          className="w-full  py-12 md:py-24 lg:py-32 bg-[#010101] mt-10"
+          className="w-full  py-12 md:py-24 lg:py-32 bg-[#03050F] mt-10"
         >
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -45,6 +46,9 @@ export default function Home() {
 
         {/* Examples Section */}
         <Example />
+
+        {/* Documentation Section */}
+        <Documentation/>
 
         {/* Installation Section */}
         <Installation />
@@ -80,7 +84,7 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="w-full border-t py-6 md:py-0 bg-[#010101] ">
+      <footer className="w-full border-t py-6 md:py-0 bg-[#03050F] ">
         <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row ">
           <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
             © {new Date().getFullYear()} PixelCraft. All rights reserved.

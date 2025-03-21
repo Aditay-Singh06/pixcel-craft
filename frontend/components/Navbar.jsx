@@ -18,33 +18,33 @@ const Navbar = () => {
         <div className="flex items-center gap-3">
           {/* <Image className="h-6 w-6" /> */}
           <BookText />
-          <span className="text-2xl font-bold">PixelCraft</span>
+          <span className="text-3xl font-bold">PixelCraft</span>
         </div>
         <nav className="hidden md:flex gap-6">
           <Link
             href="#features"
-            className="text-md font-medium hover:text-primary"
+            className="text-lg font-medium hover:text-primary"
           >
             Features
           </Link>
           <Link
             href="#examples"
-            className="text-md font-medium hover:text-primary"
+            className="text-lg font-medium hover:text-primary"
           >
             Examples
           </Link>
           <Link
             href="#installation"
-            className="text-md font-medium hover:text-primary"
+            className="text-lg font-medium hover:text-primary"
           >
             Installation
           </Link>
-          <Link href="#docs" className="text-md font-medium hover:text-primary">
+          <Link href="#docs" className="text-lg font-medium hover:text-primary">
             Documentation
           </Link>
 
           <DropdownMenu>
-            <DropdownMenuTrigger><SquareMenu /></DropdownMenuTrigger>
+            <DropdownMenuTrigger className='text-lg font-medium hover:text-primary'><SquareMenu /></DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuLabel>More</DropdownMenuLabel>
               <DropdownMenuSeparator />
