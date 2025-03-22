@@ -21,7 +21,7 @@ function AboutPage() {
     {
       name: "Anishk Jaiswal",
       role: "Full Stack Developer",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400&h=400",
+      image: "/Anishk.jpg",
       bio: "Frontend specialist focusing on User Experience. Driving the performance improvements in PixcelCraft.",
       skills: ["React.js", "Figma", "UI/UX",  "Editor", "Version Control"],
       social: {
@@ -122,23 +122,6 @@ function AboutPage() {
 
       {/* Footer */}
       <Footer/>
-      {/* <footer className="bg-gray-900 text-white py-8 mt-12">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-2xl font-bold mb-4 md:mb-0">
-              PixcelCraft
-            </div>
-            <div className="flex gap-8">
-              <a href="#" className="hover:text-blue-400 transition-colors">Documentation</a>
-              <a href="#" className="hover:text-blue-400 transition-colors">GitHub</a>
-              <a href="#" className="hover:text-blue-400 transition-colors">NPM</a>
-            </div>
-          </div>
-          <div className="mt-6 text-center text-gray-500">
-            © {new Date().getFullYear()} PixcelCraft. All rights reserved.
-          </div>
-        </div>
-      </footer> */}
     </div>
   );
 }

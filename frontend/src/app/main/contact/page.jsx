@@ -50,12 +50,6 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-black to-blue-900">
       {/* Header */}
-      {/* <header className="bg-gray-900 border-b border-gray-800">
-        <div className="container mx-auto px-4 py-6">
-          <h1 className="text-3xl font-bold text-gray-100">Contact Us</h1>
-          <p className="text-gray-400 mt-2">Get in touch with our development team</p>
-        </div>
-      </header> */}
       <Navbar />
 
       {/* Contact Options */}
