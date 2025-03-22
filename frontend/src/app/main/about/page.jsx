@@ -1,6 +1,8 @@
 'use client';
 import React from 'react';
 import { Github, Twitter, Linkedin, Mail, Code, Terminal, Database, Cpu } from 'lucide-react';
+import Navbar from '../../../../components/Navbar';
+import Footer from '../../../../components/Footer';
 
 function AboutPage() {
   const developers = [
@@ -40,13 +42,13 @@ function AboutPage() {
   return (
     <div className="min-h-screen bg-black">
       {/* Header */}
-      <header className="bg-gray-900 border-b border-gray-800">
+      {/* <header className="bg-gray-900 border-b border-gray-800">
         <div className="container mx-auto px-4 py-6">
           <h1 className="text-3xl font-bold text-gray-100">About PixcelCraft</h1>
           <p className="text-gray-400 mt-2">Meet the team behind the technology</p>
         </div>
-      </header>
-
+      </header> */}
+      <Navbar/>
       {/* Main Content */}
       <main className="container mx-auto px-4 py-12">
         {/* Mission Statement */}
@@ -58,9 +60,9 @@ function AboutPage() {
         </div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {features.map((feature, index) => (
-            <div key={index} className="bg-gray-900 p-6 rounded-xl border border-gray-800">
+            <div key={index} className=" bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-blue-400 transition-colors">
               <div className="h-12 w-12 bg-blue-900 rounded-lg flex items-center justify-center mb-4 ">
                 <feature.icon className="h-6 w-6 text-blue-400" />
               </div>
@@ -119,7 +121,8 @@ function AboutPage() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8 mt-12">
+      <Footer/>
+      {/* <footer className="bg-gray-900 text-white py-8 mt-12">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-2xl font-bold mb-4 md:mb-0">
@@ -135,7 +138,7 @@ function AboutPage() {
             © {new Date().getFullYear()} PixcelCraft. All rights reserved.
           </div>
         </div>
-      </footer>
+      </footer> */}
     </div>
   );
 }

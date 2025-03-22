@@ -2,10 +2,12 @@
 import React, { useState } from 'react';
 
 import { Mail, MessageSquare, Phone, Send, Users } from 'lucide-react';
+import Navbar from '../../../../components/Navbar';
+import Footer from '../../../../components/Footer';
 
 function ContactCard({ icon: Icon, title, description, link, linkText }) {
   return (
-    <div className="bg-gray-900 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-800">
+    <div className="bg-gray-900 p-6 rounded-xl shadow-lg hover:shadow-xl hover:border-blue-900 transition-shadow border border-gray-800">
       <div className="h-12 w-12 bg-blue-900 rounded-lg flex items-center justify-center mb-4">
         <Icon className="h-6 w-6 text-blue-400" />
       </div>
@@ -48,12 +50,13 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-black to-blue-900">
       {/* Header */}
-      <header className="bg-gray-900 border-b border-gray-800">
+      {/* <header className="bg-gray-900 border-b border-gray-800">
         <div className="container mx-auto px-4 py-6">
           <h1 className="text-3xl font-bold text-gray-100">Contact Us</h1>
           <p className="text-gray-400 mt-2">Get in touch with our development team</p>
         </div>
-      </header>
+      </header> */}
+      <Navbar />
 
       {/* Contact Options */}
       <section className="py-12">
@@ -170,23 +173,7 @@ function App() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-black text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-2xl font-bold mb-4 md:mb-0">
-              PixcelCraft
-            </div>
-            <div className="flex gap-8">
-              <a href="#" className="hover:text-blue-400 transition-colors">Documentation</a>
-              <a href="#" className="hover:text-blue-400 transition-colors">GitHub</a>
-              <a href="#" className="hover:text-blue-400 transition-colors">NPM</a>
-            </div>
-          </div>
-          <div className="mt-8 text-center text-gray-500">
-            © {new Date().getFullYear()} PixcelCraft. All rights reserved.
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

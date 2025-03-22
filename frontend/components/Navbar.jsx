@@ -18,7 +18,9 @@ const Navbar = () => {
         <div className="flex items-center gap-3">
           {/* <Image className="h-6 w-6" /> */}
           <BookText />
-          <span className="text-3xl font-bold">PixelCraft</span>
+          
+            <span className="text-3xl font-bold"><Link href="/">PixelCraft</Link></span>
+          
         </div>
         <nav className="hidden md:flex gap-6">
           <Link
@@ -44,14 +46,27 @@ const Navbar = () => {
           </Link>
 
           <DropdownMenu>
-            <DropdownMenuTrigger className='text-lg font-medium hover:text-primary'><SquareMenu /></DropdownMenuTrigger>
+            <DropdownMenuTrigger className="text-lg font-medium hover:text-primary">
+              <SquareMenu />
+            </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuLabel>More</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem><Link href={"/profile"}>Profile</Link></DropdownMenuItem>
-              <DropdownMenuItem><Link href={"/main/login"}>Login</Link></DropdownMenuItem>
-              <DropdownMenuItem><Link href={"/main/about"}>About Us</Link></DropdownMenuItem>
-              <DropdownMenuItem><Link href={"/main/contact"}>Contact Us</Link></DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href={"/profile"}>Profile</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href={"/main/login"}>Login</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href={"/main/signup"}>Signup</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href={"/main/about"}>About Us</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href={"/main/contact"}>Contact Us</Link>
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </nav>

@@ -1,6 +1,8 @@
 'use client'
 import React, { useState } from 'react';
 import { Mail, MessageSquare, Phone, Send, Users, Lock, Eye, EyeOff, User, ArrowRight } from 'lucide-react';
+import Footer from '../../../../components/Footer';
+import Link from "next/link"  
 
 function SignUpPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -26,10 +28,10 @@ function SignUpPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black to-blue-900 flex flex-col">
+    <div className="min-h-screen bg-gradient-to-b  flex flex-col">
       {/* Header */}
       <header className="bg-gray-900 border-b border-gray-800">
-        <div className="container mx-auto px-4 py-6">
+        <div className="container mx-auto px-2 py-4">
           <h1 className="text-3xl font-bold text-gray-100">PixecCraft</h1>
           <p className="text-gray-400 mt-2">Create your account</p>
         </div>
@@ -143,9 +145,9 @@ function SignUpPage() {
 
           <div className="mt-6 text-center text-gray-400">
             Already have an account?{' '}
-            <a href="#" className="text-blue-400 hover:text-blue-300 font-medium">
+            <Link href="/main/login" className="text-blue-400 hover:text-blue-300 font-medium">
               Sign in
-            </a>
+            </Link>
           </div>
 
           <div className="mt-8 pt-6 border-t border-gray-800">
@@ -157,23 +159,7 @@ function SignUpPage() {
       </div>
 
       {/* Footer */}
-      <footer className="bg-black text-white py-8">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-2xl font-bold mb-4 md:mb-0">
-              PixcelCraft
-            </div>
-            <div className="flex gap-8">
-              <a href="#" className="hover:text-blue-400 transition-colors">Documentation</a>
-              <a href="#" className="hover:text-blue-400 transition-colors">GitHub</a>
-              <a href="#" className="hover:text-blue-400 transition-colors">NPM</a>
-            </div>
-          </div>
-          <div className="mt-6 text-center text-gray-500">
-            © {new Date().getFullYear()} PixcelCraft. All rights reserved.
-          </div>
-        </div>
-      </footer>
+      <Footer/>
     </div>
   );
 }
