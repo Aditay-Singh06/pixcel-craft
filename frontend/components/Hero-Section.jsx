@@ -34,7 +34,7 @@ export function HeroSectionOne() {
             duration: 0.3,
             delay: 0.8,
           }}
-          className="relative z-10 mx-auto max-w-xl py-4 text-center text-xl font-normal text-neutral-600 dark:text-neutral-400"
+          className="relative z-10 mx-auto max-w-xl py-4 text-center text-lg font-normal text-neutral-600 dark:text-neutral-400"
         >
           A lightweight, high-performance library for image
           manipulation, optimization, and effects in your React applications.
