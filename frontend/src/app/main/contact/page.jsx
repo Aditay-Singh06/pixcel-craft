@@ -1,9 +1,10 @@
-'use client'
-import React, { useState } from 'react';
-
-import { Mail, MessageSquare, Phone, Send, Users } from 'lucide-react';
-import Navbar from '../../../../components/Navbar';
-import Footer from '../../../../components/Footer';
+"use client";
+import React from "react";
+import { Mail, MessageSquare, Phone, Send, Users } from "lucide-react";
+import Navbar from "../../../../components/Navbar";
+import Footer from "../../../../components/Footer";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 function ContactCard({ icon: Icon, title, description, link, linkText }) {
   return (
@@ -26,26 +27,29 @@ function ContactCard({ icon: Icon, title, description, link, linkText }) {
 }
 
 function App() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
+  // validation schema
+  const ContactSchema = Yup.object().shape({
+    name: Yup.string()
+      .min(2, "Too Short!")
+      .max(50, "Too Long!")
+      .required("Required"),
+    email: Yup.string().email("Invalid email").required("Required"),
+    subject: Yup.string().required("Required"),
+    message: Yup.string().required("Required"),
   });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
+  const contactForm = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    },
+    onSubmit: (values) => {
+      console.log(values);
+    },
+    validationSchema: ContactSchema,
+  });
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black to-blue-900">
@@ -85,72 +89,104 @@ function App() {
       <section className="py-12 bg-gray-900">
         <div className="container mx-auto px-4 max-w-3xl">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-100 mb-4">Send Us a Message</h2>
+            <h2 className="text-3xl font-bold text-gray-100 mb-4">
+              Send Us a Message
+            </h2>
             <p className="text-gray-400">
-              Have a specific question? Fill out the form below and we'll get back to you within 24 hours.
+              Have a specific question? Fill out the form below and we'll get
+              back to you within 24 hours.
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={contactForm.handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-300 mb-2"
+                >
                   Your Name
                 </label>
                 <input
                   type="text"
-                  id="name"
                   name="name"
-                  value={formData.name}
-                  onChange={handleChange}
+                  id="name"
+                  onChange={contactForm.handleChange}
+                  value={contactForm.values.name}
                   className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-100"
-                  required
                 />
+              {contactForm.touched.name && contactForm.errors.name && (
+                  <p className=" text-xs text-red-600 mt-2" id="email">
+                    {contactForm.errors.name}
+                  </p>
+                )}
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-300 mb-2"
+                >
                   Email Address
                 </label>
                 <input
                   type="email"
                   id="email"
                   name="email"
-                  value={formData.email}
-                  onChange={handleChange}
+                  value={contactForm.values.email}
+                  onChange={contactForm.handleChange}
                   className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-100"
-                  required
                 />
+              {contactForm.touched.email && contactForm.errors.email && (
+                  <p className=" text-xs text-red-600 mt-2" id="email">
+                    {contactForm.errors.email}
+                  </p>
+                )}
               </div>
-            </div>
+            </div>  
 
             <div>
-              <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
+              <label
+                htmlFor="subject"
+                className="block text-sm font-medium text-gray-300 mb-2"
+              >
                 Subject
               </label>
               <input
                 type="text"
                 id="subject"
                 name="subject"
-                value={formData.subject}
-                onChange={handleChange}
+                value={contactForm.values.subject}
+                onChange={contactForm.handleChange}
                 className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-100"
-                required
               />
+                 {contactForm.touched.subject && contactForm.errors.subject && (
+                  <p className=" text-xs text-red-600 mt-2" id="email">
+                    {contactForm.errors.subject}
+                  </p>
+                )}
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+              <label
+                htmlFor="message"
+                className="block text-sm font-medium text-gray-300 mb-2"
+              >
                 Message
               </label>
               <textarea
+                type="text"
                 id="message"
                 name="message"
-                value={formData.message}
-                onChange={handleChange}
+                value={contactForm.values.message}
+                onChange={contactForm.handleChange}
                 rows="6"
                 className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-100"
-                required
               ></textarea>
+                 {contactForm.touched.message && contactForm.errors.message && (
+                  <p className=" text-xs text-red-600 mt-2" id="email">
+                    {contactForm.errors.message}
+                  </p>
+                )}
             </div>
 
             <div className="flex justify-center">
