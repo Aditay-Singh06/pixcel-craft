@@ -11,26 +11,38 @@ import Navbar from "../../../../components/Navbar";
 import Footer from "../../../../components/Footer";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 export default function LoginPage() {
   // validation schema
   const LoginSchema = Yup.object().shape({
-    name: Yup.string()
-      .min(2, "Too Short!")
-      .max(50, "Too Long!")
-      .required("Required"),
-    email: Yup.string().email("Invalid email").required("Required"),
-    subject: Yup.string().required("Required"),
-    message: Yup.string().required("Required"),
+    email: Yup.string()
+      .email("Invalid email address")
+      .required("Email is required"),
+    password: Yup.string()
+      .min(6, "Password must be at least 6 characters")
+      .required("Password is required"),
   });
 
   const loginForm = useFormik({
     initialValues: {
       email: "",
-      password    : "",
+      password: "",
     },
     onSubmit: (values) => {
-      console.log(values);
+      console.log("Form submitted:", values);
+      axios
+        .post(`${process.env.NEXT_PUBLIC_API_URL}/user/authenticate`, values)
+        .then((result) => {
+          console.log(result.data);
+          localStorage.setItem("user", result.data.token);
+          toast.success("Login Successfull");
+        })
+        .catch((err) => {
+          console.log(err);
+          toast.error("Login failed. Please check your credentials");
+        });
     },
     validationSchema: LoginSchema,
   });
@@ -65,6 +77,9 @@ export default function LoginPage() {
                     placeholder="name@example.com"
                     required
                     className="border-white-800 bg-blue-950/50 text-white placeholder:text-white-500/50 focus:border-blue-500 focus:ring-blue-500"
+                    onChange={loginForm.handleChange}
+                    onBlur={loginForm.handleBlur}
+                    value={loginForm.values.email}
                   />
                 </div>
 
@@ -86,6 +101,9 @@ export default function LoginPage() {
                     placeholder="••••••••"
                     required
                     className="border-white-800 bg-blue-950/50 text-white placeholder:text-white-500/50 focus:border-blue-300 focus:ring-blue-500"
+                    onChange={loginForm.handleChange}
+                    onBlur={loginForm.handleBlur}
+                    value={loginForm.values.password}
                   />
                 </div>
 
