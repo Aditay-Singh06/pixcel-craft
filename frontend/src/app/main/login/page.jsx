@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Github, Image } from "lucide-react";
 import { Button } from "@/components/ui/button";
