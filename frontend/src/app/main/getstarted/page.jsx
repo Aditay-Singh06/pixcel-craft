@@ -295,14 +295,14 @@ export function cn(...inputs: ClassValue[]) {
                   <tr className="border-b border-gray-800">
                     <td className="py-3 px-4">
                       <code className="bg-gray-800 px-1 py-0.5 rounded">
-                        items
+                        imageURL
                       </code>
                     </td>
                     <td className="py-3 px-4">
                       <code className="text-xs bg-gray-800 px-2 py-1 rounded">
-                        Array&lt;
-                        {`{ id?: number; name: string; designation: string; image: string }`}
-                        &gt;
+                        String
+                        {/* {`{ id?: number; name: string; designation: string; image: string }`} */}
+                        
                       </code>
                     </td>
                     <td className="py-3 px-4 text-gray-300">
