@@ -174,7 +174,7 @@ export function cn(...inputs: ClassValue[]) {
                       />
                     </div>
                     <div className="absolute opacity-0 group-hover:opacity-100 -top-12 left-1/2 transform -translate-x-1/2 px-3 py-2 bg-black text-white rounded-md text-sm whitespace-nowrap transition-opacity duration-200">
-                      User Name {i}
+                      User  {i}
                       <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-black"></div>
                     </div>
                   </div>
