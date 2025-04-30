@@ -1,4 +1,3 @@
-
 import { Github, ArrowRight } from "lucide-react";
 import Navbar from "../../components/Navbar";
 import { FeaturesSectionDemo } from "../../components/FeatureSectionDemo";
@@ -8,7 +7,7 @@ import Installation from "../../components/Installation";
 import { Spotlight } from "../../components/ui/spotlight-new";
 import Documentation from "../../components/Documentation";
 import Footer from "../../components/Footer";
-
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -48,7 +47,7 @@ export default function Home() {
         <Example />
 
         {/* Documentation Section */}
-        <Documentation/>
+        <Documentation />
 
         {/* Installation Section */}
         <Installation />
@@ -67,10 +66,12 @@ export default function Home() {
             </div>
             <div className="mx-auto flex flex-col gap-2 min-[400px]:flex-row">
               <button className="w-50 transform rounded-lg bg-black px-6 py-2 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
-                <div className="flex items-center justify-center gap-2 text-md">
-                  Get Started
-                  <ArrowRight />
-                </div>
+                <Link href="main/getstarted">
+                  <div className="flex items-center justify-center gap-2 text-md">
+                    Get Started
+                    <ArrowRight />
+                  </div>
+                </Link>
               </button>
               <button className="w-50 transform rounded-lg border border-gray-300 bg-white px-6 py-2 font-medium text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-100 dark:border-gray-700 dark:bg-black dark:text-white dark:hover:bg-gray-900">
                 <div className="flex items-center justify-center gap-2 text-md">
@@ -84,7 +85,7 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <Footer/>
+      <Footer />
     </div>
   );
 }
