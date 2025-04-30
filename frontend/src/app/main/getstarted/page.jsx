@@ -34,84 +34,118 @@ export default function Home() {
     }));
   };
 
-  const componentCode = `import React from 'react'
-import { motion } from 'framer-motion'
+  const componentCode = `import React, { useEffect, useState } from 'react';
 
-export const AnimatedTooltip = ({
-  items = [],
-}) => {
-  return (
-    <div className="flex flex-row items-center justify-center">
-      {items.map((item, idx) => (
-        <AnimatedItem
-          key={item.id || idx}
-          item={item}
-        />
-      ))}
-    </div>
-  )
+type Unit = 'KB' | 'MB';
+
+interface ImageCompressorProps {
+  imageUrl?: string;       // External image URL
+  imagePath?: string;      // Local/public path to image
+  targetSize: number;      // Target size value
+  unit?: Unit;             // KB or MB
+  onCompressed?: (compressedDataUrl: string, blob: Blob) => void;
 }
 
-const AnimatedItem = ({ item }) => {
-  return (
-    <motion.div
-      className="relative group"
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1 }}
-      whileHover={{ scale: 1.1 }}
-    >
-      <img
-        src={item.image || "/placeholder.svg"}
-        alt={item.name}
-        className="object-cover rounded-full h-10 w-10 md:h-12 md:w-12"
-      />
-      <div className="absolute opacity-0 group-hover:opacity-100 -top-12 left-1/2 transform -translate-x-1/2 px-3 py-2 bg-black text-white rounded-md text-sm whitespace-nowrap transition-opacity duration-200">
-        {item.name}
-        <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-black"></div>
-      </div>
-    </motion.div>
-  )
-}`;
+const ImageCompressor: React.FC<ImageCompressorProps> = ({
+  imageUrl,
+  imagePath,
+  targetSize,
+  unit = 'KB',
+  onCompressed,
+}) => {
+  const [compressedUrl, setCompressedUrl] = useState<string | null>(null);
 
-  const usageCode = `import { AnimatedTooltip } from './components/animated-tooltip'
+  useEffect(() => {
+    const finalImageSource = imageUrl || imagePath;
+    if (!finalImageSource) return;
 
-const people = [
-  {
-    id: 1,
-    name: "John Doe",
-    designation: "Software Engineer",
-    image: "https://example.com/avatar1.jpg"
-  },
-  {
-    id: 2,
-    name: "Jane Smith",
-    designation: "Product Designer",
-    image: "https://example.com/avatar2.jpg"
-  },
-  {
-    id: 3,
-    name: "Robert Johnson",
-    designation: "Marketing Lead",
-    image: "https://example.com/avatar3.jpg"
-  }
-]
+    const compressImage = async () => {
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.src = finalImageSource;
 
-export default function Example() {
+      const targetBytes = unit === 'MB' ? targetSize * 1024 * 1024 : targetSize * 1024;
+
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+        let quality = 0.92;
+        let dataUrl = canvas.toDataURL('image/jpeg', quality);
+        let blob = dataURLToBlob(dataUrl);
+
+        const compressLoop = () => {
+          dataUrl = canvas.toDataURL('image/jpeg', quality);
+          blob = dataURLToBlob(dataUrl);
+
+          if (blob.size <= targetBytes || quality <= 0.1) {
+            setCompressedUrl(dataUrl);
+            onCompressed?.(dataUrl, blob);
+            return;
+          }
+
+          quality -= 0.05;
+          compressLoop();
+        };
+
+        compressLoop();
+      };
+
+      img.onerror = () => {
+        console.error('Failed to load image.');
+      };
+    };
+
+    compressImage();
+  }, [imageUrl, imagePath, targetSize, unit, onCompressed]);
+
+  const dataURLToBlob = (dataUrl: string): Blob => {
+    const byteString = atob(dataUrl.split(',')[1]);
+    const mimeString = dataUrl.split(',')[0].split(':')[1].split(';')[0];
+    const ab = new ArrayBuffer(byteString.length);
+    const ia = new Uint8Array(ab);
+    for (let i = 0; i < byteString.length; i++) {
+      ia[i] = byteString.charCodeAt(i);
+    }
+    return new Blob([ab], { type: mimeString });
+  };
+
   return (
     <div>
-      <AnimatedTooltip items={people} />
+      {compressedUrl ? (
+        <div>
+          <p>Compressed Image:</p>
+          <img src={compressedUrl} alt="Compressed" style={{ maxWidth: '100%' }} />
+        </div>
+      ) : (
+        <p>Compressing image...</p>
+      )}
     </div>
+  );
+};
+
+export default ImageCompressor;`
+
+const usageCode = `import ImageCompressor from "../components/Compression"
+
+const CompressionImage = () => {
+  return (
+    <ImageCompressor
+    imageUrl="https://example.com/large-image.jpg"
+    targetSize={300}
+    unit="KB"
+  />
   )
-}`;
+}
+export default CompressionImage`;
 
-  const installDependencies = `npm i motion framer-motion`;
-  const utilFile = `// lib/utils.ts
-import { ClassValue, clsx } from "clsx"
-import { twMerge } from "tailwind-merge"
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
-}`;
+const installDependencies = `npm install --save image-compressor`;
+const utilFile = `Hello`;
 
   return (
     <div className="flex min-h-screen bg-black text-white">
