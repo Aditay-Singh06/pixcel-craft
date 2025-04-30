@@ -288,12 +288,14 @@ export function cn(...inputs: ClassValue[]) {
                   <tr className="border-b border-gray-800">
                     <th className="py-3 px-4 text-left">Prop name</th>
                     <th className="py-3 px-4 text-left">Type</th>
+                    <th className="py-3 px-4 text-left">Required</th>
+                    <th className="py-3 px-4 text-left">Default</th>
                     <th className="py-3 px-4 text-left">Description</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="border-b border-gray-800">
-                    <td className="py-3 px-4">
+                    <td className="py-3 px-4">  
                       <code className="bg-gray-800 px-1 py-0.5 rounded">
                         items
                       </code>
@@ -301,28 +303,21 @@ export function cn(...inputs: ClassValue[]) {
                     <td className="py-3 px-4">
                       <code className="text-xs bg-gray-800 px-2 py-1 rounded">
                         Array&lt;
-                        {`{ id?: number; name: string; designation: string; image: string }`}
+                        {`{ id?: number; name: string; designation: string; image: string }`} 
                         &gt;
                       </code>
                     </td>
+                    <td className="py-3 px-4">
+                      No
+                    </td>
+                    <td className="py-3 px-4">
+                      <div className="bg-blue-900 flex justify-center items-center rounded-md text-xs text-white px-2 py-1">
+                        --
+                      </div>
+                    </td>
                     <td className="py-3 px-4 text-gray-300">
-                      An array of objects, each representing an item. Each
-                      object should have the following properties:{" "}
-                      <code className="bg-gray-800 px-1 py-0.5 rounded">
-                        id
-                      </code>
-                      ,{" "}
-                      <code className="bg-gray-800 px-1 py-0.5 rounded">
-                        name
-                      </code>
-                      ,{" "}
-                      <code className="bg-gray-800 px-1 py-0.5 rounded">
-                        designation
-                      </code>
-                      ,{" "}
-                      <code className="bg-gray-800 px-1 py-0.5 rounded">
-                        image
-                      </code>
+                    URL to the external image to compress.
+                     
                     </td>
                   </tr>
                 </tbody>
