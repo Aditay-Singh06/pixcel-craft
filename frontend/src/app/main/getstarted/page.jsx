@@ -353,6 +353,107 @@ String
                      
                     </td>
                   </tr>
+                  <tr className="border-b border-gray-800">
+                    <td className="py-3 px-4">  
+                      <code className="bg-gray-800 px-1 py-0.5 rounded">
+                        imagePath
+                      </code>
+                    </td>
+                    <td className="py-3 px-4">
+                      <code className="text-xs bg-gray-800 px-2 py-1 rounded">
+String
+{/* {`{ id?: number; name: string; designation: string; image: string }`} */}
+                      </code>
+                    </td>
+                    <td className="py-3 px-4">
+                      No
+                    </td>
+                    <td className="py-3 px-4">
+                      <div className="bg-blue-900 flex justify-center items-center rounded-md text-xs text-white px-2 py-1">
+                        --
+                      </div>
+                    </td>
+                    <td className="py-3 px-4 text-gray-300">
+                    Path to local or public image (e.g., <code className="text-xs bg-gray-800 px-2 py-1 rounded">/image/sample.jpg</code>).
+                    Ignored if <code className="text-xs bg-gray-800 px-2 py-1 rounded">imageUrl</code> is provide.
+                     
+                    </td>
+                  </tr>
+                  <tr className="border-b border-gray-800">
+                    <td className="py-3 px-4">  
+                      <code className="bg-gray-800 px-1 py-0.5 rounded">
+                        targetSize
+                      </code>
+                    </td>
+                    <td className="py-3 px-4">
+                      <code className="text-xs bg-gray-800 px-2 py-1 rounded">
+number
+{/* {`{ id?: number; name: string; designation: string; image: string }`} */}
+                      </code>
+                    </td>
+                    <td className="py-3 px-4">
+                      Yes
+                    </td>
+                    <td className="py-3 px-4">
+                      <div className="bg-blue-900 flex justify-center items-center rounded-md text-xs text-white px-2 py-1">
+                        --
+                      </div>
+                    </td>
+                    <td className="py-3 px-4 text-gray-300">
+                    The desired size of the compressed image (in KB or MB, depending on <code className="text-xs bg-gray-800 px-2 py-1 rounded">unit</code>)
+                     
+                    </td>
+                  </tr>
+                  <tr className="border-b border-gray-800">
+                    <td className="py-3 px-4">  
+                      <code className="bg-gray-800 px-1 py-0.5 rounded">
+                        imageURL
+                      </code>
+                    </td>
+                    <td className="py-3 px-4">
+                      <code className="text-xs bg-gray-800 px-2 py-1 rounded">
+String
+{/* {`{ id?: number; name: string; designation: string; image: string }`} */}
+                      </code>
+                    </td>
+                    <td className="py-3 px-4">
+                      No
+                    </td>
+                    <td className="py-3 px-4">
+                      <div className="bg-blue-900 flex justify-center items-center rounded-md text-xs text-white px-2 py-1">
+                        --
+                      </div>
+                    </td>
+                    <td className="py-3 px-4 text-gray-300">
+                    URL to the external image to compress.
+                     
+                    </td>
+                  </tr>
+                  <tr className="border-b border-gray-800">
+                    <td className="py-3 px-4">  
+                      <code className="bg-gray-800 px-1 py-0.5 rounded">
+                        imageURL
+                      </code>
+                    </td>
+                    <td className="py-3 px-4">
+                      <code className="text-xs bg-gray-800 px-2 py-1 rounded">
+String
+{/* {`{ id?: number; name: string; designation: string; image: string }`} */}
+                      </code>
+                    </td>
+                    <td className="py-3 px-4">
+                      No
+                    </td>
+                    <td className="py-3 px-4">
+                      <div className="bg-blue-900 flex justify-center items-center rounded-md text-xs text-white px-2 py-1">
+                        --
+                      </div>
+                    </td>
+                    <td className="py-3 px-4 text-gray-300">
+                    URL to the external image to compress.
+                     
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </div>
