@@ -181,9 +181,9 @@ const utilFile = `Hello`;
 
         {/* Component Content */}
         <main className="max-w-5xl mx-auto px-6 py-8">
-          <h1 className="text-3xl font-bold mb-2">Image Editor</h1>
+          <h1 className="text-3xl font-bold mb-2">Image Compressor</h1>
           <p className="text-gray-400 mb-6">
-            A cool tooltip that reveals on hover, follows mouse pointer
+          The ImageCompressor component compresses a given image (from a URL or local/public path) to a desired target file size. It's ideal for image optimization before uploading or sharing, ensuring reduced bandwidth without significant quality loss.
           </p>
 
           {/* Tabs */}
@@ -407,12 +407,12 @@ number
                   <tr className="border-b border-gray-800">
                     <td className="py-3 px-4">  
                       <code className="bg-gray-800 px-1 py-0.5 rounded">
-                        imageURL
+                        unit
                       </code>
                     </td>
                     <td className="py-3 px-4">
                       <code className="text-xs bg-gray-800 px-2 py-1 rounded">
-String
+'KB' | 'MB'
 {/* {`{ id?: number; name: string; designation: string; image: string }`} */}
                       </code>
                     </td>
@@ -421,24 +421,24 @@ String
                     </td>
                     <td className="py-3 px-4">
                       <div className="bg-blue-900 flex justify-center items-center rounded-md text-xs text-white px-2 py-1">
-                        --
+                        'KB'
                       </div>
                     </td>
                     <td className="py-3 px-4 text-gray-300">
-                    URL to the external image to compress.
+                    Unit to measure the target size.
                      
                     </td>
                   </tr>
                   <tr className="border-b border-gray-800">
                     <td className="py-3 px-4">  
                       <code className="bg-gray-800 px-1 py-0.5 rounded">
-                        imageURL
+                        onCompressed
                       </code>
                     </td>
                     <td className="py-3 px-4">
                       <code className="text-xs bg-gray-800 px-2 py-1 rounded">
-String
-{/* {`{ id?: number; name: string; designation: string; image: string }`} */}
+
+{`(compressedDataUrl:string, blob:Blob)=>void`}
                       </code>
                     </td>
                     <td className="py-3 px-4">
@@ -450,7 +450,7 @@ String
                       </div>
                     </td>
                     <td className="py-3 px-4 text-gray-300">
-                    URL to the external image to compress.
+                    Callback invoke once compression completes with the data URL and <code>Blob</code> of the image.
                      
                     </td>
                   </tr>

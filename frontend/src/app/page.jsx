@@ -4,7 +4,6 @@ import { FeaturesSectionDemo } from "../../components/FeatureSectionDemo";
 import { HeroSectionOne } from "../../components/Hero-Section";
 import Example from "../../components/Example";
 import Installation from "../../components/Installation";
-import { Spotlight } from "../../components/ui/spotlight-new";
 import Documentation from "../../components/Documentation";
 import Footer from "../../components/Footer";
 import Link from "next/link";
@@ -66,7 +65,7 @@ export default function Home() {
             </div>
             <div className="mx-auto flex flex-col gap-2 min-[400px]:flex-row">
               <button className="w-50 transform rounded-lg bg-black px-6 py-2 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
-                <Link href="main/getstarted">
+                <Link href="/main/getstarted/ImageEditor">
                   <div className="flex items-center justify-center gap-2 text-md">
                     Get Started
                     <ArrowRight />
