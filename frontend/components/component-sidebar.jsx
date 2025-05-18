@@ -4,31 +4,33 @@ import { useState } from "react";
 import { ChevronRight, ChevronDown } from "lucide-react";
 
 const components = [
-  {
-    category: "Follow for updates",
-    items: [{ name: "Twitter @aceternityco" }],
-  },
+  // {
+  //   category: "Follow for updates",
+  //   items: [{ name: "Twitter @aceternityco" }],
+  // },
   {
     category: "Installation",
     items: [
       { name: "Install Next.js" },
-      // { name: "Install Tailwind CSS" },
-      { name: "Add utilities" },
-      // { name: "CLI" },
+      // { name: "Add utilities" },
     ],
   },
   {
     category: "All Components",
     items: [
-      { name: "Image Watermark" },
-      { name: "Image Format Conversion", isNew: true },
-      { name: "Filters and Effects" },
-      { name: "Image Compressor" },
-      { name: "Image Editor", isActive: true },
-      // { name: "Apple Card Carousel" },
-      // { name: "Background Beams" },
-      // { name: "Background Boxes" },
-      // { name: "Background Boxes With Collision" },
+      { name: "Image Watermark", link: "/main/getstarted/ImageWatermark" },
+      {
+        name: "Image Format Conversion",
+        link: "/main/getstarted/ImageFormatConversion",
+        isNew: true,
+      },
+      { name: "Filters and Effects", link: "/main/getstarted/FilterEffects" },
+      { name: "Image Compressor", link: "/main/getstarted/ImageCompressor", },
+      {
+        name: "Image Editor",
+        link: "/main/getstarted/ImageEditor",
+        isActive: true,
+      },
     ],
   },
 ];
@@ -48,9 +50,7 @@ export default function ComponentSidebar() {
   return (
     <aside className="w-64 border-r border-gray-800 h-screen overflow-y-auto bg-black flex-shrink-0">
       <div className="p-4 border-b border-gray-800">
-        <h1 className="text-2xl font-bold flex items-center">
-           PixelCraft
-        </h1>
+        <h1 className="text-xl font-bold flex items-center">PixelCraft</h1>
       </div>
       <nav className="p-4">
         {components.map((category) => (
@@ -73,7 +73,7 @@ export default function ComponentSidebar() {
                 {category.items.map((item) => (
                   <li key={item.name}>
                     <a
-                      href="#"
+                      href={item.link}
                       className={`flex items-center text-sm py-1 px-2 rounded-md ${
                         item.isActive
                           ? "bg-blue-900 text-white"
