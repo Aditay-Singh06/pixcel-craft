@@ -44,7 +44,7 @@ const Navbar = () => {
           >
             Installation
           </Link>
-          <Link href="#docs" className="text-lg font-medium hover:text-primary">
+          <Link href="/main/getstarted/FilterEffects" className="text-lg font-medium hover:text-primary">
             Documentation
           </Link>
 
@@ -72,7 +72,7 @@ const Navbar = () => {
         </nav>
 
         <div className="flex items-center">
-        <Input />
+        {/* <Input /> */}
 
           <DropdownMenu>
             <DropdownMenuTrigger className="text-lg font-medium hover:text-primary p-2">
@@ -81,7 +81,7 @@ const Navbar = () => {
             <DropdownMenuContent>
               <DropdownMenuLabel>Menu</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>
+              {/* <DropdownMenuItem>
                 <Link href="/main/login" className="w-full">
                   Login
                 </Link>
@@ -90,7 +90,7 @@ const Navbar = () => {
                 <Link href="/main/signup" className="w-full">
                   Signup
                 </Link>
-              </DropdownMenuItem>
+              </DropdownMenuItem> */}
               <DropdownMenuItem>
                 <Link href="/main/about" className="w-full">
                   About Us

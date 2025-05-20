@@ -5,7 +5,7 @@ import React from "react";
 import { CodeBlock } from "@/components/ui/code-block";
 
 export function CodeBlockDemo() {
-  const code = `import { ImageFilter } from 'pixel-craft-react';
+  const code = `import { ImageFilter } from 'pixel-craft';
 
 function App() {
   return (
@@ -32,7 +32,7 @@ function App() {
 }
 
 export function CodeBlockTwo() {
-    const code = `import { ImageOptimize } from 'pixel-craft-react';
+    const code = `import { ImageOptimize } from 'pixel-craft';
 
 function App() {
   return (
@@ -59,7 +59,7 @@ function App() {
   }
 
   export function CodeBlockThree() {
-    const code = `import { ImageOptimize } from 'pixel-craft-react';
+    const code = `import { ImageOptimize } from 'pixel-craft';
 
 function App() {
   return (
@@ -86,7 +86,7 @@ function App() {
   }
 
   export function CodeBlockFour() {
-    const code = `npm install pixel-craft-react`;
+    const code = `npm install pixel-craft`;
 
 function App() {
   return (
@@ -114,7 +114,7 @@ function App() {
 
   export function CodeBlockFive() {
     const code = `import React from 'react';
-import { ImageEditor } from 'pixel-craft-react';
+import { ImageEditor } from 'pixel-craft';
 
 function App() {
   return (

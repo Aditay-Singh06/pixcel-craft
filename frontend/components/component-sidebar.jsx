@@ -1,7 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChevronRight, ChevronDown } from "lucide-react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 const components = [
   // {
@@ -11,7 +13,7 @@ const components = [
   {
     category: "Installation",
     items: [
-      { name: "Install Next.js" },
+      { name: "Install React + vite", link: "https://vite.dev/" },
       // { name: "Add utilities" },
     ],
   },
@@ -25,7 +27,7 @@ const components = [
         isNew: true,
       },
       { name: "Filters and Effects", link: "/main/getstarted/FilterEffects" },
-      { name: "Image Compressor", link: "/main/getstarted/ImageCompressor", },
+      { name: "Image Compressor", link: "/main/getstarted/ImageCompressor" },
       {
         name: "Image Editor",
         link: "/main/getstarted/ImageEditor",
@@ -36,9 +38,23 @@ const components = [
 ];
 
 export default function ComponentSidebar() {
+  const pathname = usePathname();
   const [expandedCategories, setExpandedCategories] = useState(
     Object.fromEntries(components.map((category) => [category.category, true]))
   );
+  const [activeItem, setActiveItem] = useState(null);
+
+  useEffect(() => {
+    // Update active item based on current path
+    const currentPath = pathname;
+    components.forEach((category) => {
+      category.items.forEach((item) => {
+        if (item.link === "https://vite.dev/") {
+          setActiveItem(item.name);
+        }
+      });
+    });
+  }, [pathname]);
 
   const toggleCategory = (category) => {
     setExpandedCategories((prev) => ({
@@ -47,10 +63,16 @@ export default function ComponentSidebar() {
     }));
   };
 
+  const handleItemClick = (itemName) => {
+    setActiveItem(itemName);
+  };
+
   return (
     <aside className="w-64 border-r border-gray-800 h-screen overflow-y-auto bg-black flex-shrink-0">
       <div className="p-4 border-b border-gray-800">
-        <h1 className="text-xl font-bold flex items-center">PixelCraft</h1>
+        <Link href="/">
+          <h1 className="text-xl font-bold flex items-center">PixelCraft</h1>
+        </Link>
       </div>
       <nav className="p-4">
         {components.map((category) => (
@@ -72,10 +94,17 @@ export default function ComponentSidebar() {
               <ul className="space-y-2">
                 {category.items.map((item) => (
                   <li key={item.name}>
-                    <a
-                      href={item.link}
+                    <Link
+                      href={item.link || "#"}
+                      onClick={() => handleItemClick(item.name)}
+                      target={item.link?.startsWith("http") ? "_blank" : undefined}
+                      rel={
+                        item.link?.startsWith("http")
+                          ? "noopener noreferrer"
+                          : undefined
+                      }
                       className={`flex items-center text-sm py-1 px-2 rounded-md ${
-                        item.isActive
+                        activeItem === item.name || pathname === item.link
                           ? "bg-blue-900 text-white"
                           : "text-gray-400 hover:text-white hover:bg-gray-800"
                       }`}
@@ -86,7 +115,7 @@ export default function ComponentSidebar() {
                           New
                         </span>
                       )}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

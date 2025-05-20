@@ -5,6 +5,8 @@ import Navbar from "../../../../components/Navbar";
 import Footer from "../../../../components/Footer";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 function ContactCard({ icon: Icon, title, description, link, linkText }) {
   return (
@@ -46,7 +48,18 @@ function App() {
       message: "",
     },
     onSubmit: (values) => {
-      console.log(values);
+       console.log("Form submitted:", values);
+      axios
+        .post(`${process.env.NEXT_PUBLIC_API_URL}/contact/submit`, values)
+        .then((result) => {
+          console.log(result.data);
+          localStorage.setItem("user", result.data.token);
+          toast.success("Login Successfull");
+        })
+        .catch((err) => {
+          console.log(err);
+          toast.error("Login failed. Please check your credentials");
+        });
     },
     validationSchema: ContactSchema,
   });

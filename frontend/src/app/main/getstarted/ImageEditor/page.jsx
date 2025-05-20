@@ -10,6 +10,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs2";
+import Componentheader from "@/components/Component-header";
 
 export default function Home() {
   const [copied, setCopied] = useState(false);
@@ -158,29 +159,7 @@ export default ImageEditor;`;
       {/* Main Content */}
       <div className="flex-1 overflow-auto">
         {/* Header */}
-        <header className="flex justify-between px-20 py-4 border-b border-gray-800">
-          <div className="flex jus items-center space-x-4">
-            <span className="text-lg">Components</span>
-            {/* <span>Templates</span> */}
-            <span className="bg-blue-900 text-white px-2 py-0.5 rounded-md text-ms">
-              New
-            </span>
-            {/* <span>Pricing</span> */}
-            {/* <span>Showcase</span> */}
-            {/* <span>Playground</span> */}
-            <span className="text-xl">Twitter</span>
-          </div>
-          <div className="flex items-center space-x-2">
-            <div className="relative">
-              <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-              <input
-                type="text"
-                placeholder="Search"
-                className="bg-gray-900 rounded-md pl-8 pr-4 py-1 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
-              />
-            </div>
-          </div>
-        </header>
+        <Componentheader/>
 
         {/* Component Content */}
         <main className="max-w-5xl mx-auto px-6 py-8">
@@ -879,21 +858,24 @@ export default ImageEditor;`;
                           Lazy load images
                         </td>
                         <td className="py-2 px-4 text-gray-300">
-                          Improves performance for pages with multiple image editors
+                          Improves performance for pages with multiple image
+                          editors
                         </td>
                       </tr>
                       <hr />
                       <tr>
                         <td className="py-2 px-4 text-gray-300">
-                          Canvas rendering instead of <code className="text-ms bg-gray-800 px-2 py-1 rounded">
+                          Canvas rendering instead of{" "}
+                          <code className="text-ms bg-gray-800 px-2 py-1 rounded">
                             img
-                          </code> for processing
+                          </code>{" "}
+                          for processing
                         </td>
                         <td className="py-2 px-4 text-gray-300">
-                          Offers better performance and flexibility for operations like cropping, flipping, and filters
+                          Offers better performance and flexibility for
+                          operations like cropping, flipping, and filters
                         </td>
                       </tr>
-                      
                     </tbody>
                   </table>
                 </div>
